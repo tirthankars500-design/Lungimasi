@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Galentine's Day Oindi 💐</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #ffb6d9, #ffd6ec);
+  overflow: hidden;
+  text-align: center;
+  color: #4a0033;
+}
+
+/* Floating flowers */
+.flower {
+  position: fixed;
+  top: -10%;
+  font-size: 24px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* Glowing title */
+.glow {
+  font-size: 40px;
+  margin-top: 60px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #ff66b2; }
+  to { text-shadow: 0 0 20px #fff, 0 0 40px #ff1493; }
+}
+
+.bouquet {
+  font-size: 70px;
+  margin-top: 30px;
+}
+
+.note-btn {
+  margin-top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.note {
+  display: none;
+  margin: 30px auto;
+  max-width: 700px;
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 1.6;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bouquet">💐</div>
+<h1 class="glow">Happy Galentine's Day Oindi (Lungi Masi) 💖</h1>
+
+<p class="note-btn" onclick="openNote()">
+💌 Tap to read your special message
+</p>
+
+<div class="note" id="noteText">
+Happy Galentine's Day Oindi 💐 <br><br>
+
+Thanks for always being there and, more importantly, for actually staying.  
+It’s rare to find someone whose vibe matches mine so perfectly.  
+So glad I have you in my life. 💖 <br><br>
+
+Amader friendship tao khub unexpectedly hoychilo...  
+I hope like this our bond grows stronger with time. 🤍 <br><br>
+
+Ar chill, porer bar tor theke lungi kinte jabo 🤣  
+Kolkata ele dekha hobe! 😌✨ <br><br>
+
+Take care always, Lungi Masi 💕
+</div>
+
+<script>
+function openNote() {
+  document.getElementById("noteText").style.display = "block";
+}
+
+/* Create floating flowers */
+setInterval(function() {
+  var flower = document.createElement("div");
+  flower.className = "flower";
+  flower.innerHTML = "🌸";
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(flower);
+
+  setTimeout(() => { flower.remove(); }, 8000);
+}, 500);
+</script>
+
+</body>
+</html>
