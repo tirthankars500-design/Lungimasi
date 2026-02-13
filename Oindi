@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Oindi 💐</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #ffb6d9, #ffd6ec);
+  overflow: hidden;
+  text-align: center;
+  color: #4a0033;
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  font-size: 18px;
+  animation: sparkleAnim 1.5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkleAnim {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+
+/* Floating flowers */
+.flower {
+  position: fixed;
+  top: -10%;
+  font-size: 24px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* Password screen */
+.password-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.4);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
+}
+
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  width: 260px;
+  text-align: center;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4da6;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Main content */
+#mainContent {
+  display: none;
+  padding: 40px;
+}
+
+.glow {
+  font-size: 40px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #ff66b2; }
+  to { text-shadow: 0 0 20px #fff, 0 0 40px #ff1493; }
+}
+
+.bouquet {
+  font-size: 70px;
+  margin-top: 30px;
+}
+
+.note-btn {
+  margin-top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.note {
+  display: none;
+  margin: 30px auto;
+  max-width: 700px;
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 1.6;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="passwordPage" class="password-box">
+  <h2>Enter Secret Code 💌</h2>
+  <input type="password" id="codeInput" placeholder="Enter code">
+  <br>
+  <button onclick="checkCode()">Unlock 💖</button>
+</div>
+
+<div id="mainContent">
+  <div class="bouquet">💐</div>
+  <h1 class="glow">Happy Galentine's Day Oindi (Lungi Masi) 💃💖</h1>
+
+  <p class="note-btn" onclick="openNote()">
+    💌 Tap to read your special message
+  </p>
+
+  <div class="note" id="noteText">
+Happy Galentine's Day Oindi 💐 <br><br>
+
+Thanks for always being there and, more importantly, for actually staying.  
+It’s rare to find someone whose vibe matches mine so perfectly.  
+So glad I have you in my life. 💖 <br><br>
+
+Amader friendship tao khub unexpectedly hoychilo...  
+I hope like this our bond grows stronger. 🤍 <br><br>
+
+Ar chill, porer bar tor theke lungi kinte jabo 🤣  
+Kolkata ele dekha hobe! 😌✨ <br><br>
+
+Take care always, Lungi Masi 💕
+  </div>
+</div>
+
+<script>
+function checkCode() {
+  var code = document.getElementById("codeInput").value;
+  if(code === "Lungimasikorelungidance") {
+    document.getElementById("passwordPage").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+  } else {
+    alert("Wrong Code 💔");
+  }
+}
+
+function openNote() {
+  document.getElementById("noteText").style.display = "block";
+}
+
+/* Floating flowers */
+setInterval(function() {
+  var flower = document.createElement("div");
+  flower.className = "flower";
+  flower.innerHTML = "🌸";
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(flower);
+  setTimeout(() => { flower.remove(); }, 8000);
+}, 500);
+
+/* Sparkles on click */
+document.addEventListener("click", function(e) {
+  var sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML = "✨";
+  sparkle.style.left = e.pageX + "px";
+  sparkle.style.top = e.pageY + "px";
+  document.body.appendChild(sparkle);
+  setTimeout(() => { sparkle.remove(); }, 1500);
+});
+</script>
+
+</body>
+</html>
